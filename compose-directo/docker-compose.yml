@@ -1,0 +1,29 @@
+services:
+  db:
+    image: postgres:16
+    networks:
+      - redtarea
+    volumes:
+      - volumentarea:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: midb
+      POSTGRES_USER: usuario
+      POSTGRES_PASSWORD: clave123
+
+  web:
+    image: nginx:alpine
+    ports:
+      - "8081:80"
+    networks:
+      - redtarea
+    volumes:
+      - ../nginx/html:/usr/share/nginx/html:ro
+
+
+networks:
+  redtarea:
+    external: true
+
+volumes:
+  volumentarea:
+    external: true
