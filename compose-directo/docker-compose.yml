@@ -1,14 +1,9 @@
 services:
   db:
-    image: postgres:16
-    networks:
-      - redtarea
+    image: postgres:18
     volumes:
-      - volumentarea:/var/lib/postgresql/data
-    environment:
-      POSTGRES_DB: midb
-      POSTGRES_USER: usuario
-      POSTGRES_PASSWORD: clave123
+      - volumentarea:/var/lib/postgresql
+
 
   web:
     image: nginx:alpine
