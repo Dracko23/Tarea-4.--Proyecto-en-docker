@@ -1,8 +1,15 @@
 services:
   db:
     image: postgres:18
+    container_name: compose-dockerfile-db-1
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 2123
+      POSTGRES_DB: practicaDb
     volumes:
-      - volumentarea:/var/lib/postgresql
+      - volumentarea:/var/lib/postgresql/data
+    networks:
+      - redtarea
 
 
   web:
